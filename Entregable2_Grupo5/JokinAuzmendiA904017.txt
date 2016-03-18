@@ -1,0 +1,17 @@
+Jokin Auzmendi A904017
+
+My .java and .html files are:
+menuJokin.html
+benef.java
+
+
+Function:
+The function works to calculate in real time how the economy of the user id going to be just taking in account the benefit he is going to get selling beers and the costs of having beers in the inventory and ordering beers to the supplier. In this way he will know if he is going to lose money that day or he is going to earn some.
+
+With this function, in case the accounting is either positive or negative, the user will be able to know which will be the optimun number of beers to order, considering the benefits and the costs, neither to lose nor win money. Just touchint a button. The user will also be able to have a calculator to know the benefits, costs and earning of the beers.
+
+Code:
+The javascript will print and calculate the number of beers the user can buy depending on how much a beer costs.
+
+Database:
+I have linked my function with the Tables Game and Groups to check the prices of selling and buying a beer and calculate how many beers have interact in that day.

@@ -1,0 +1,21 @@
+Luken Garay Beristain A903906
+
+.html files:
+	Election.html
+	ChangeGroupInformation.html
+	RegisterGroup.html
+	SearchGroup.html
+
+.java files:
+	AllGroups.java
+	ChangeGroupInformation.java
+	NewGroupInformation.java
+	RegisterGroups.java
+	SearchGroup.java
+
+All this files are conected by de menu on the top of the pages. You can introduce a group and after that change
+all the information of that group or search for more.
+
+You have to start from the Index.html
+
+There are som submints that they dont do anithing because they have to conect with other person files.

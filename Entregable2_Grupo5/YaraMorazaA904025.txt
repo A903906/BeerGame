@@ -1,0 +1,22 @@
+Yara Moraza Arruti A904025
+
+My .html , .java and .js are:
+
+MakeComment.html
+login.html
+PostComments.java
+ShowCommentsDataBase.java
+login.java
+register.java
+
+In MakeComment.html the  text box changes its size while you are writing and if you click on the submit 
+button without filling the text box an alert appears. In our game it will be impossible to make a comment without
+login so I didn't put a restriction to that and if you aren't registered it gives you an error.
+
+In the ShowCommentsDataBase.java something similar will happen. This forum will only be available when the game
+is finished so it is mandatory to be registered. In the other hand, as the user is also shown in the table I had 
+to include the login.java and the register.java. 
+In ShowComments.java I used javascript to give "likes" to the comments and to show and alert when the page 
+loads.
+
+With the menu, shown at the top of each page, you can access to each of this functions.  

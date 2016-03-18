@@ -1,0 +1,8 @@
+Alex Mugica Aramendi
+A903944
+
+In this function, the user is going to have firstly the information of the inventory in the previous day
+and the order he/she will receive from her/his previous supplier. There is a button to update the inventory,
+but the user can´t update it until he/she drop the beer to the inventory; Then, the update button will be 
+enabled and he/she could see the inventory updated. The updated inventory page will give to the user the 
+information of how much stock has the user available on the inventory.

@@ -1,0 +1,3 @@
+The Files needed to check the inventory are implemented by Benjamin Lentz.
+The HTML-file checkinventory.html inlcudes a form which provides a identification for gain acess to the wanted information. The javascript in this file ables the form to check if the identification input are valid data.
+The java files ensures that the wanted information are extracted from the data base(not implemented yet) and displays it in a table.
