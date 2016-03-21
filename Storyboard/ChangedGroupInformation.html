@@ -30,7 +30,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-            <li><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home<span class="caret"></span></a>
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home<span class="caret"></span></a>
             <ul class="dropdown-menu">
 			<li><a href="Election.html">First Page</a></li>
 			<li><a href="#">Log Off</a></li>
@@ -38,7 +38,7 @@
 			</li>
 			</li>
 			<li class="dropdown">
-            <li><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groups Information<span class="caret"></span></a>
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groups Information<span class="caret"></span></a>
             <ul class="dropdown-menu">
 			<li><a href="RegisterGroup.html">Register Your Group</a></li>
 			<li><a href="AllGroups.html">See All Groups</a></li>
@@ -51,36 +51,70 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-       <div class="beer">
-        <H1 ALIGN="center">CHANGE YOUR GROUP INFORMATION</H1>
-			<div>
-				<FORM ACTION="ChangedGroupInformation.html" METHOD="get">
-				<div class="CSSTableGenerator">
-					<TABLE style=" width: 100px; height: 100px; margin-left: 600px;">
-						<TR>
-							<TD ALIGN="center"><B>Insert Group Name</B></TD>
-							<TD ALIGN="center"><B>Insert Group Password</B></TD>
-						</TR>
-						<TR>
-							<TD ALIGN="center"> <INPUT TYPE="text" NAME="SearchName">
-							<TD ALIGN="center"> <INPUT TYPE="Password" NAME="SearchPassword"></TD>
-						</TR>
-					</TABLE>
-				</div>
-				<P ALIGN="center"><INPUT TYPE="submit" VALUE="Change">
-				</FORM>
-			</div>
-		</div>
-		<footer class="footer">
-      <div class="container">
-        <p class="text-muted">Impressum FAQ Contacts</p>
-      </div>
-    </footer>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>
-    window.jQuery || document.write('<script src="../.…
-	</script>
-	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-	<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<div class="beer">
+	<H1 ALIGN="center">YOUR GROUP INFORMATION</H1>
+	<div class="CSSTableGenerator">
+	<TABLE style=" width: 400px; height: 100px; margin-left: 610px;">
+	<TR>
+	<TD>GroupName</TD>
+	<TD>Creator Name</TD>
+	<TD>Group Password</TD>
+	<TD>Number of Days</TD>
+	</TR>
+	<tr>
+	<td>LukenMikel</td>
+	<td>Luken</td>
+	<td>123456</td>
+	<td>5</td>
+	</tr>
+	</TABLE>
+	</div>
+	<FORM ACTION="AllGroups.html" METHOD="get">
+	<TABLE style="margin-left: 725px;">
+	<TR>
+	</TR>
+	<TR>
+	<TD ALIGN="center" VALIGN="up"><B> Group Name </B></TD>
+	</TR>
+	<TR>
+	<TD><p ALIGN="center"><input type="text" name="OldGroupName"></input></p></TD>
+	</TR>
+	<TR>
+	</TR>
+	<TR>
+	<TD ALIGN="center" VALIGN="up"><B> Group New Name </B></TD>
+	</TR>
+	<TR>
+	<TD><p ALIGN="center"><input type="text" name="NewGroupName"></input></p></TD>
+	</TR>
+	<TR>
+	</TR>
+	<TR>
+	<TD ALIGN="center" VALIGN="up"><B>Group Password</B></TD>
+	</TR>
+	<TR>
+	<TD><p ALIGN="center"><input type="password" name="OldGroupPassword"></input></p></TD>
+	</TR>
+	<TR>
+	</TR>
+	<TR>
+	<TD ALIGN="center" VALIGN="up"><B>New Group Password</B></TD>
+	</TR>
+	<TR>
+	<TD><p ALIGN="center"><input type="password" name="NewGroupPassword"></input></p></TD>
+	</TR>
+	<TR>
+	</TR>
+	<TR>
+	<TD ALIGN="center" VALIGN="up"><B>Change the Number of Days </B></TD>
+	</TR>
+	<TR>
+	<TD><p ALIGN="center"><input type="text" name="NewDays"></input></p></TD>
+	</TR>
+	<TR>
+	</TR>
+	</TABLE>
+	<p align="center"><input type="submit" VALUE="Change"></p>
+	</FORM>
 	</BODY>
 </html>
