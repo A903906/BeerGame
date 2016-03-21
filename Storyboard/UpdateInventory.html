@@ -1,0 +1,130 @@
+		<!DOCTYPE HTML>
+		<html class=\"full\">
+        <HEAD>
+		<TITLE> The Beer Game </TITLE>
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="beerIcon.jpg" rel="shortcut icon">
+		<title>Beer Game</title>
+		<meta charset="utf-8"></meta>
+		<meta content="IE=edge" http-equiv="X-UA-Compatible"></meta>
+		<meta content="width=device-width, initial-scale=1" name="viewport"></meta>
+		<meta content="" name="description"></meta>
+		<meta content="" name="author"></meta>
+		<link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css"></link>
+		<link rel="stylesheet" href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css"></link>	
+		<link rel="stylesheet" href="beerDesign(alex).css">
+		<script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+		</head>
+		<body>
+
+		
+        <nav class="navbar navbar-default beer">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Beer Game</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="highlight"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	
+	<script>
+		         $(function() {
+            $('.draggable-5').draggable({ revert: true });
+            $('.droppable-8').droppable({
+               hoverClass: 'active',
+               drop: function(e, ui) {
+                  $(this).html(ui.draggable.remove().html());
+                  $(this).droppable('destroy');
+                  $( this )
+                  
+                  .find( "p" )
+                  .html( "Inventario actualizado" );
+				  document.getElementById("myBtn").disabled = false;
+				  document.getElementById("myBtn").hidden = false;
+               }
+            });
+         });
+	</script>
+	
+	<div class="beer" >
+		
+		<h3>DEMAND</h3>
+		<Table  Border="1" style="Background-color: white; width: 82px; height: 102px;" ><TR><TD><p style="font-size:50px;" align="center">10</p></TD></TR></Table>
+		
+		<h3>MAKE THE ORDER</h3>
+		<input type="number" id="myNumber" style="height:56px; width:104px; margin-left: 25px; font-size: 24px;" value="1">
+		
+		<TABLE>
+		
+	<tr>
+
+	<td>
+    <img src="http://vignette1.wikia.nocookie.net/battlenations/images/c/c3/ResourceDepot_2_icon.png/revision/latest?cb=20121015035402" style="margin-left: 575px;"></img>
+	</td>
+	
+	<td class="draggable-5" ondrop="drop(event)" style="position: relative;left: 50px;top: 35px;padding-right: 0px;border-right-width: 0px;" ></td>
+		
+    <td class="droppable-8" style="margin-left: 100px; margin-right: 0px;" ></td>
+	<td>
+	<form method="get" action="Finalday.html">
+	<input id="myBtn"  type="submit" value="Verify the order" disabled hidden>
+    </form>
+	</td>
+	</tr>
+	
+		
+	</TABLE>
+		
+		
+		
+		<TABLE class="CSSTableGenerator" style="margin-left: 450px; margin-top: 50px;">
+		
+		<tr>
+
+		<td>Inventory</td>
+		</tr>
+		<tr>
+		<td><p>7</p></td>
+		</tr>
+	
+	</TABLE>	
+		
+		
+		<a href="benefits.htm"><img src="euro.jpg" class="posicionamiento" ></img></a>
+		<a href="stats.htm"><img src="stats.jpg" class="posicionamiento2" ></img></a>
+		<form method="get" action="ReceiveAnOrder">
+		<a href="ReceiveAnOrder"><img src="next.jpg" class="posicionamiento3" type="submit"></img></a>
+		</form>
+		
+		</div>
+		
+        </body>
+        </html>

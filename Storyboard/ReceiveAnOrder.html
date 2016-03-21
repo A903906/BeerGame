@@ -11,7 +11,7 @@
 	<meta content="" name="author"></meta>
 	<link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css"></link>
     <link rel="stylesheet" href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css"></link>	
-	<link rel="stylesheet" href="beerDesign.css">
+	<link rel="stylesheet" href="beerDesign(alex).css">
 	<script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
@@ -27,7 +27,7 @@
                   $(this).html(ui.draggable.remove().html());
                   $(this).droppable('destroy');
                   $( this )
-                  .addClass( "ui-state-highlight" )
+                  
                   .find( "p" )
                   .html( "Inventario actualizado" );
 				  document.getElementById("myBtn").disabled = false;
@@ -35,6 +35,7 @@
             });
          });
 	</script>
+	
 	   	<nav class="navbar navbar-default beer">
       <div class="container">
         <div class="navbar-header">
@@ -68,48 +69,54 @@
       </div>
     </nav>
 	
-	<div class="beer"  style="height: 286px;">
-		
-	<div class="CSSTableGenerator">
+	
+	<div class="beer" >
+	
+	<h3>DEMAND</h3>
+	<Table  Border="1" style="Background-color: white; width: 82px; height: 102px;" ><TR><TD><p style="font-size:50px;" align="center">10</p></TD></TR></Table>
+	
+	
+	
 	<TABLE>
 		
 	<tr>
-	<td>Almacen</td>
-		
-		
-		
-	<td>Actualizacion</td>
-	</tr>
+
 		
 	<td class="draggable-4" ondrop="drop(event)" style="position: relative;left: 50px;top: 35px;padding-right: 0px;border-right-width: 0px;" ></td>
-    <td class="droppable-7" style="margin-left: 100px; margin-right: 0px;" >Inventario</td>
-		
+	<td></td>
+	<td></td>
+    <td class="droppable-7" style="margin-left: 100px; margin-right: 0px;" ></td>
+	<td></td>
+	<td></td>
+	<td></td>
 	<td>
-	<form method="get" action="UpdateInventory">
-	<input id="myBtn"  type="submit" value="Actualizar Inventario" disabled >
+	<form method="get" action="UpdateInventory.html">
+	<input id="myBtn"  type="submit" value="Update the inventory" disabled >
     </form>
 	</td>
+	</tr>
 		
 	</TABLE>
-	</div>
-		
-	<div class="CSSTableGenerator">
-	<TABLE>
+	<tr></tr>
+	<TABLE class="CSSTableGenerator" style="margin-left: 450px; margin-top: 50px;">
 		
 	<tr>
-	<td>Pedido recibido</td>
+	<td>Order Received</td>
 		
-	<td>Inventario</td>
+	<td>Inventory</td>
 	</tr>
 	<tr>
 	<td><p>7</p></td>
 	<td><p>12</p></td>
 	</tr>
 	
-	</TABLE>
-	</div>
+	</TABLE>	
 		
-	</div>
-		
+	<a href="benefits.htm"><img src="euro.jpg" class="posicionamiento" ></img></a>
+	<a href="stats.htm"><img src="stats.jpg" class="posicionamiento2" ></img></a>
+	<form method="get" action="ReceiveAnOrder">
+	<a href="ReceiveAnOrder"><img src="next.jpg" class="posicionamiento3" type="submit"></img></a>
+    </form>
+	
     </body>
     </html>
