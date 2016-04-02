@@ -1,4 +1,5 @@
-	<HEAD>
+<html>
+	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="img/beerIcon.jpg" rel="shortcut icon">
 		<title>Beer Game</title>
@@ -11,7 +12,34 @@
 		<link rel="stylesheet" href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css"></link>	
 		<link rel="stylesheet" href="beerDesign.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	</HEAD>
+		
+		<script>
+			var sent = false;
+			var ordered = false;
+			function send(){
+				var k = parseInt(document.getElementById("sendNum").value);
+				if(isNaN(k)){alert("Input value is not a number");}
+				if(k>5){alert("Not enough beers.\nYou have only 5 beers but want to send "+k+". That's not possible!");}
+				if(k<2){alert("You are sending less beers than ordered, although you have sufficient beers. Are you sure?");}
+				if(!isNaN(k)&&k<=5) sent=true;
+				checkReady();
+			}
+			function order(){
+				var k = parseInt(document.getElementById("orderNum").value);
+				if(isNaN(k)){alert("Input value is not a number");}
+				else ordered=true;
+				checkReady()
+			}
+			function checkReady()
+			{
+				if(sent && ordered)
+				{
+					alert("You made a proper order and sending. You can begin the next day now");
+					document.getElementById("nextDay").disabled = false;
+				}
+			}
+		</script>
+	</head>
 	
 	<body class="pull_top sticky-header">
 	<div class="navbar navbar-inverse navbar-fixed-top navbar-main beer-up" role="navigate">
@@ -19,10 +47,7 @@
 			<div class="pull-right">
 			<ul class="nav navbar navbar-nav navbar-right user-nav">
 				<li id="signup-menu">
-					<a class="highlight" href="signup.html">Sign Up</a>
-				</li>
-				<li id="signin-menu">
-					<a href="login.html">Sign In</a>
+					<a class="highlight" href="index.html">Log Out</a>
 				</li>
 			</ul>
 			</div>			
@@ -39,11 +64,32 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse pull-right">
 			  <ul class="nav navbar-nav">
+				<li class="dropdown">
+					<li><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li class="dropdown-header">My Teams</li>
+						<li><a href="play.html">Test Group 1</a></li>
+						<li><a href="graph.html">Test Group 2 <span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a></li>
+						<li role="separator" class="divider"></li>
+						<li class="dropdown-header">New Team</li>
+						<li><a href="allGroups.html">Join</a></li>
+						<li><a href="registerGroup.html">Create</a></li>
+					</ul>
+					</li>
+				</li>
 				<li>
 				<a href="forum.html">Forum</a>
 				</li>
 				<li>
 				<a href="help.html">Help</a>
+				</li>
+				<li class="dropdown">
+					<li><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="changeGroupSettings.html">Test Group 1</a></li>
+						<li><a href="changeUserSettings.html">My Account</a></li>
+					</ul>
+					</li>
 				</li>
 			  </ul>
 			</div>
@@ -53,24 +99,25 @@
 	<div class="container">
 	<div class="row">
 		<div class="beer" ALIGN="center">
-			<H1>Sign up</H1>
 			<div>
-				<form class="form-inline" ACTION="login.html" METHOD="get">
+				<h1>Change User Information</h1>
+				<form class="form-inline" ACTION="play.html" METHOD="get">
 					<div class="form-container">
 					Username:<br>
 					<input type="text" class="form-control" placeholder="Username" name="Username" id="user_password" /> <br>
-					Password:<br>
-					<input type="password" class="form-control" placeholder="Password" name="Password" id="user_password" /> <br>
+					Old Password:<br>
+					<input type="password" class="form-control" placeholder="Old Password" name="Password" id="user_password" /> <br>
+					New Password:<br>
+					<input type="password" class="form-control" placeholder="New Password" name="Password" id="user_password" /> <br>
 					Firstname:<br>
 					<input type="text" class="form-control" placeholder="Firstname" name="FirstName" id="user_password" /> <br>
 					Lastname:<br>
 					<input type="text" class="form-control" placeholder="Lastname" name="LastName" id="user_password" /> <br>
-					E-mail adress:<br>
-					<input type="text" class="form-control" placeholder="E-Mail" name="Email" id="user_password" /> <br>
-					<input type="submit" value="Create my Account" class="accent-button tracked newbtn" data-action="signed in" data-label="provider=email" />
+					<input type="submit" value="Make Changes" class="accent-button tracked newbtn" data-action="signed in" data-label="provider=email" />
 					</div>
 				</form>
 			</div>
+		</div>
 		<br>
 		</div>
 	</div>
@@ -104,4 +151,5 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 	<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-	</BODY>
+</body>
+</html>
