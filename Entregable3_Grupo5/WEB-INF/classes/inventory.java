@@ -9,7 +9,7 @@ public class inventory extends HttpServlet {
 
 	String[] roleList = new String[]{"Factory", "Distributor", "Wholesaler", "Retailer"};
     Connection connection;
-    PageFrame pFrame = new PageFrame();
+    PageFrameNew pFrame = new PageFrameNew();
 	
 	
     public void init(ServletConfig config) throws ServletException {
@@ -56,7 +56,7 @@ public class inventory extends HttpServlet {
         }
         
 		/*Look for database*/
-		String sqlLogin = "SELECT username FROM Users WHERE username = '" + username +
+		String sqlLogin = "SELECT surname FROM Users WHERE username = '" + username +
             "' AND Password = '" + password + "'";
 		String sqlRole = "SELECT role_id FROM UsersRoles WHERE user_id = '" + username +
             "' AND group_id = '" + group_id + "'";
@@ -68,13 +68,24 @@ public class inventory extends HttpServlet {
 		try{
             Statement statement  = connection.createStatement();
             ResultSet result     = statement.executeQuery(sqlLogin);
-            ResultSet resultRole = statement.executeQuery(sqlRole);
-			if (resultRole.next()) {
-                HttpSession session = req.getSession(true);
-                session.setAttribute("username", username);
-                String role_id = resultRole.getString("role_id");
-				ShowInventory(out, session, role_id, group_id, req, resp);//
-            }
+			if (result.next()) 
+			{
+				ResultSet resultRole = statement.executeQuery(sqlRole);
+				if(resultRole.next()){
+					HttpSession session = req.getSession(true);
+					session.setAttribute("username", username);
+					String role_id = resultRole.getString("role_id");
+					ShowInventory(out, session, role_id, group_id, req, resp);//
+				}
+			}
+			else{
+				pFrame.startFrameWithoutConnection(out);
+				out.println("<div class=\"beer container\" align=\"center\">");
+				out.println("<h1>Log in failed.</h1>");
+				out.println("<h2>Something went wrong. <br> Make sure your input was correct and try it again.</h2>");
+				out.println("</div>");
+				pFrame.endFrame(out);
+			}
 		} catch(SQLException e) {
             e.printStackTrace();
             System.out.println("Resulset: " + sqlLogin + " Und " + sqlRole + " Exception: " + e);
@@ -96,7 +107,7 @@ public class inventory extends HttpServlet {
 		out.println("Here you see your past actions and orders enlisted.");
 		out.println("<table class=\"inventory-table CSSTableGenerator\">");
 		out.println("<tr>");
-		out.println("<td>Day</td><td>Stock</td><td>Incoming</td><td>Outgoing</td><td>Order</td>");
+		out.println("<td onmousemove=\"helpLabel('Number of days')\">Day</td><td onmousemove=\"helpLabel('Number of beers stored')\">Stock</td><td onmousemove=\"helpLabel('Number of beers have been delivered')\">Incoming</td><td onmousemove=\"helpLabel('Number of beers you have sent')\">Outgoing</td><td onmousemove=\"helpLabel('Number of beers you have ordered')\">Order</td>");
 		out.println("</tr>");
 		
 		/*Get Data from Database*/
@@ -113,7 +124,11 @@ public class inventory extends HttpServlet {
                 int incoming = result.getInt("ordersreceived");
                 int outgoing = result.getInt("ordersserved");
                 int order 	 = result.getInt("ordered");
-				out.println("<tr><td>"+day+"</td><td>"+stock+"</td><td>"+incoming+"</td><td>"+outgoing+"</td><td>"+order+"</td></tr>");
+				out.println("<tr><td>"+day+"</td>");
+				out.println("<td onmousemove=\"helpLabel('You stored "+stock+" beers on day "+day+"')\">"+stock+"</td>");
+				out.println("<td onmousemove=\"helpLabel('"+incoming+" beers have been sent to you on day "+day+"')\">"+incoming+"</td>");
+				out.println("<td onmousemove=\"helpLabel('You sent "+outgoing+" beers on day "+day+"')\">"+outgoing+"</td>");
+				out.println("<td onmousemove=\"helpLabel('You ordered "+order+" beers on day "+day+"')\">"+order+"</td></tr>");
             }				
         } catch(SQLException e) {
             e.printStackTrace();
@@ -122,14 +137,10 @@ public class inventory extends HttpServlet {
 		
 		out.println("</table>");
 		out.println("<br>");
-		out.println("	<input type=\"button\" value=\"Back\" name=\"Back2\" onclick=\"history.back()\" class=\"newbtn\">");
+		out.println("	<input type=\"button\" value=\"Back\" name=\"Back2\" onclick=\"history.back()\" class=\"newbtn\"  onmousemove=\"helpLabel('Get back to the previous page')\">");
 		out.println("</div>");
 		
-		try{pFrame.endFrame(req,resp);}
-		catch(Exception e) {
-            e.printStackTrace();
-            System.out.println("Exception: " + e);
-        }
+		pFrame.endFrame(out);
 	
         out.flush();
         out.close();
@@ -137,15 +148,12 @@ public class inventory extends HttpServlet {
 	
 	/*No valid Role	or other Error?*/
     public void Error_inventory(PrintWriter out) {
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Error</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<BR>");
-        out.println("<H2 align=\"center\">Error while checking inventory</H2>");
-        out.println("</body>");
-        out.println("</html>");
+		pFrame.startFrameWithoutConnection(out);
+		out.println("<div class=\"beer container\" align=\"center\">");
+		out.println("<h1>An error occured.</h1>");
+		out.println("</div>");
+		pFrame.endFrame(out);
+		
         out.flush();
         out.close();
     }
